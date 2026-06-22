@@ -30,7 +30,7 @@ Use Ask mode when you need help understanding:
 
 ---
 
-## Basic  Workflow
+## Basic Workflow
 
 1. Open the project folder in VS Code.
 2. Open Copilot Chat.
@@ -135,11 +135,11 @@ Then answer the rest of the questions in this section of the worksheet.
 
 Ask Copilot:
 
-> Explain these three functions in beginner-friendly terms:  `downloadPosts`, `downloadComments`, and `getUserName`
+> Explain these three functions in beginner-friendly terms: `downloadPosts`, `downloadComments`, and `getUserName`
 
 Ask additional clarifying questions to answer the rest of the questions in this section of the worksheet.
 
-*Note*: you may need to do this from now on.
+_Note_: you may need to do this from now on.
 
 ### Part 6: Trace How Posts Appear on the Page
 
@@ -173,7 +173,7 @@ Then ask:
 
 > Why does the code create one `<details>` element after each `<article>`?
 
-Use this information to answer the  questions in this section of the worksheet.
+Use this information to answer the questions in this section of the worksheet.
 
 ### Part 9: Trace What Happens When Comments Are Opened
 
@@ -198,6 +198,50 @@ function getArticleId (comments) {
 ```
 
 Use this information to answer the questions in this section of the worksheet.
+
+---
+
+## Migrated React app (Parcel)
+
+A Parcel-based React scaffold has been added under `src/`. To run the dev server:
+
+```bash
+npm install
+npm run dev
+```
+
+Build for production with:
+
+```bash
+npm run build
+```
+
+The migrated app preserves the original behavior (posts + comment sections) and uses `src/titles.css` for the small global rule from the original app.
+
+## Running the app and tests
+
+Use Command Prompt on Windows when running project commands. The examples below assume the repo is at `d:\repos\bootcamp-ex1`.
+
+```bat
+cmd.exe /c "cd /d d:\repos\bootcamp-ex1 && npm install"
+cmd.exe /c "cd /d d:\repos\bootcamp-ex1 && npm run dev"
+```
+
+The automated checks are saved in `scripts/` so you can rerun them later:
+
+```bat
+cmd.exe /c "cd /d d:\repos\bootcamp-ex1 && npx playwright install chromium"
+cmd.exe /c "cd /d d:\repos\bootcamp-ex1 && npm run test:smoke"
+cmd.exe /c "cd /d d:\repos\bootcamp-ex1 && node scripts/check-layout.mjs"
+cmd.exe /c "cd /d d:\repos\bootcamp-ex1 && node scripts/check-comments.mjs"
+```
+
+Notes:
+
+- `npm run test:smoke` expects the Parcel dev server to be running at `http://localhost:1234`.
+- `scripts/check-layout.mjs` verifies the posts stay aligned.
+- `scripts/check-comments.mjs` verifies the comments flow left-to-right and wrap naturally.
+- If Playwright reports missing browsers, run the `npx playwright install chromium` command once.
 
 ### Part 11: Find One Possible Bug or Weakness
 

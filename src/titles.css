@@ -1,3 +1,4 @@
-h2, p::first-letter {
+h2,
+p::first-letter {
     text-transform: capitalize;
 }
